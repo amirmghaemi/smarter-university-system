@@ -21,7 +21,16 @@ class QuizzesTest(unittest.TestCase):
         _ = QuizzesController("bad_data.json")
         assert _ is QuizzesController
          self.assertIsNone(newly_added_question, "Test should fail as no data exists in the JSON")
-    
+
+    def test_expose_failure_02(self):
+        '''
+        Crash in QuizzesController.add_answer() when adding an answer to a non-existent question
+        File: quizzes_controller.py, Line: 78
+        '''       
+        controller = QuizzesController()
+        with self.assertRaises(AttributeError):
+            controller.add_answer('non-existent-question-id', 'text', True)
+
     def test_expose_failure_03(self):
         """
         Testing the ability to create a quiz with a NoneType data and causing a crash
