@@ -15,6 +15,7 @@ class QuizzesTest(unittest.TestCase):
         We load a JSON file that is empty
 
         json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes
+        File: quizzes_controller.py, Line: 63
         """
         with self.assertRaises(json.decoder.JSONDecodeError):
             QuizzesController("bad_data.json")
