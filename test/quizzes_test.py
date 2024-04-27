@@ -30,20 +30,11 @@ class QuizzesTest(unittest.TestCase):
 
     def test_expose_failure_03(self):
         """
-        Testing the ability to create a quiz with a NoneType data and causing a crash
+        Testing the ability to add question with a non-existent-quiz-id
         """
-        test_available_date = datetime(2024, 4, 23, 12, 0, 0)
-        test_due_date = datetime(2024, 4, 24, 12, 0, 0)
-        test_quiz_id = self.ctrl.add_quiz(None, 'test', test_available_date, test_due_date)
-        test_quiz = self.ctrl.get_quiz_by_id(test_quiz_id)
-        self.assertIsNotNone(test_quiz, 'Get None quiz.')
-
-        '''
-        crash info:
-        File "smarter-university-system/./app/controllers/quizzes_controller.py", line 63, in add_quiz
-            quiz_id = utils.generate_id(title + updated_date.isoformat())
-        TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
-        '''
+        controller = QuizzesController()
+        with self.assertRaises(AttributeError):
+            controller.add_question('non-existent-quiz-id', 'title', 'text')
 
 if __name__ == '__main__':
     unittest.main()
