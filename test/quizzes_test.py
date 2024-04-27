@@ -30,7 +30,7 @@ class QuizzesTest(unittest.TestCase):
 
     def test_expose_failure_03(self):
         """
-        Testing the ability to add question with a non-existent-quiz-id
+        Testing the ability to add question to a non-existent-quiz-id
         """
         controller = QuizzesController()
         with self.assertRaises(AttributeError):
