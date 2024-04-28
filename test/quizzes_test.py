@@ -23,11 +23,11 @@ class QuizzesTest(unittest.TestCase):
     def test_expose_failure_02(self):
         '''
         Crash in QuizzesController.add_answer() when adding an answer to a non-existent question
-        File: quizzes_controller.py, Line: 78
+        File: quizzes_controller.py, Line: 88
         '''       
-        controller = QuizzesController()
+        self.ctrl.clear_data()
         with self.assertRaises(AttributeError):
-            controller.add_answer('non-existent-question-id', 'text', True)
+            self.ctrl.add_answer('non-existent-question-id', 'text', True)
 
     def test_expose_failure_03(self):
         """
