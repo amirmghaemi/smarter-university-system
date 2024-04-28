@@ -32,6 +32,7 @@ class QuizzesTest(unittest.TestCase):
     def test_expose_failure_03(self):
         """
         Testing the ability to add question to a non-existent-quiz-id
+        Failed at line 39, initiating from quizzes_controller.py at line 75, quiz with id 'non-existent-quiz-id' does not exist.
         """
         controller = QuizzesController()
         with self.assertRaises(AttributeError):
